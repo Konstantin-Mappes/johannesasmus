@@ -122,4 +122,5 @@ footer a {
 .sidebar h1 a.home-link {
     color: #333;
     text-decoration: none;
+    font-weight:600;
 }
