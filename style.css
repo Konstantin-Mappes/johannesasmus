@@ -49,7 +49,7 @@ body {
 .main-nav a {
     text-decoration: none;
     color: #333;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 
 .main-nav a:hover {
@@ -58,8 +58,8 @@ body {
 
 /* Künstler-Info Text */
 .artist-info {
-    font-size: 0.9em;
-    line-height: 1.5;
+    font-size: 0.8em;
+    line-height: 1;
 }
 
 /* Footer für Impressum */
