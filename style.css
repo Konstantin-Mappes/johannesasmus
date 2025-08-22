@@ -6,7 +6,6 @@ body {
     margin: 0;
     background-color: white;
     color: #333;
-    /* NEU: Wichtig für die Fixierung, verhindert horizontales Scrollen, ohne sticky zu stören */
     overflow-x: clip; 
 }
 
@@ -14,18 +13,16 @@ body {
 .page-wrapper {
     display: flex;
     min-height: 100vh;
-    /* WICHTIG: Hier darf kein 'overflow' stehen */
 }
 
 /* Linke Spalte (Sidebar) */
 .sidebar {
-    width: 280px;
+    width: 340px; /* --- GEÄNDERT: Sidebar verbreitert --- */
     padding: 40px;
     background-color: white;
     display: flex;
     flex-direction: column;
     
-    /* HIER IST DIE FIXIERUNG EINGEBAUT */
     position: sticky;
     top: 0;
     height: 100vh; 
@@ -46,7 +43,7 @@ body {
 }
 
 .main-nav li {
-    margin-bottom: 8px; /* Reduzierter Abstand */
+    margin-bottom: 8px;
 }
 
 .main-nav a {
@@ -67,7 +64,7 @@ body {
 
 /* Footer für Impressum */
 footer {
-    margin-top: auto; /* Schiebt das Impressum nach unten */
+    margin-top: auto; 
     font-size: 0.9em;
 }
 
@@ -77,12 +74,13 @@ footer a {
 
 /* Rechte Spalte (Hauptinhalt) */
 .main-content {
-    flex-grow: 1; /* Nimmt den restlichen verfügbaren Platz ein */
+    flex-grow: 1;
     padding: 40px;
+    max-width: 1100px; /* --- NEU: Maximale Breite für den Inhalt --- */
 }
 
 .main-content img {
-    max-width: 100%; /* Stellt sicher, dass Bilder nicht über den Container hinausragen */
+    max-width: 100%;
     height: auto;
 }
 
@@ -91,17 +89,16 @@ footer a {
 
 /* Titel auf der Unterseite */
 .main-content h1 {
-    font-size: 1.5em;
+    font-size: 1.2em; /* --- GEÄNDERT: Schriftgröße angepasst --- */
     font-weight: normal;
     margin-top: 0;
-    /* Die Trennlinie wurde hier entfernt */
-    padding-bottom: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 40px; /* --- GEÄNDERT: Abstand angepasst für Bündigkeit --- */
+    padding-bottom: 0; /* --- GEÄNDERT: Abstand angepasst für Bündigkeit --- */
 }
 
 /* Container für ein einzelnes Kunstwerk */
 .artwork-item {
-    margin-bottom: 60px; /* Abstand zwischen den Kunstwerken */
+    margin-bottom: 60px;
 }
 
 /* Infobereich unter dem Bild */
