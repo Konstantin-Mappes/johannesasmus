@@ -102,8 +102,9 @@ footer a {
     margin-bottom: 60px;
 }
 
+/* --- HIER IST DIE ÄNDERUNG --- */
 .artwork-item img {
-    max-width: 60%;
+    max-width: 100%; /* War vorher 60% */
     height: auto;
 }
 
@@ -111,7 +112,7 @@ footer a {
 #frontpage-image {
     width: 100%;
     height: calc(100vh - 80px);
-    object-fit: contain; /* --- GEÄNDERT: Stellt sicher, dass das ganze Bild sichtbar ist --- */
+    object-fit: contain;
     object-position: center;
 }
 
