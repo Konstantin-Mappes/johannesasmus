@@ -4,14 +4,17 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background-color: white; /* Geändert */
+    background-color: white;
     color: #333;
+    /* NEU: Wichtig für die Fixierung, verhindert horizontales Scrollen, ohne sticky zu stören */
+    overflow-x: clip; 
 }
 
 /* Haupt-Container für das zweispaltige Layout */
 .page-wrapper {
     display: flex;
     min-height: 100vh;
+    /* WICHTIG: Hier darf kein 'overflow' stehen */
 }
 
 /* Linke Spalte (Sidebar) */
@@ -22,11 +25,11 @@ body {
     display: flex;
     flex-direction: column;
     
-    /* NEUE REGELN FÜR DAS FIXIEREN */
+    /* HIER IST DIE FIXIERUNG EINGEBAUT */
     position: sticky;
     top: 0;
-    height: 100vh; /* Sorgt dafür, dass die Spalte immer bildschirmhoch ist */
-    overflow-y: auto; /* Fügt eine Scrollbar hinzu, falls der Menütext mal zu lang wird */
+    height: 100vh; 
+    overflow-y: auto; 
 }
 
 .sidebar h1 {
@@ -43,7 +46,7 @@ body {
 }
 
 .main-nav li {
-    margin-bottom: 8px; /* Geändert */
+    margin-bottom: 8px; /* Reduzierter Abstand */
 }
 
 .main-nav a {
