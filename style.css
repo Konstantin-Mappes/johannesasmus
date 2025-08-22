@@ -1,0 +1,39 @@
+/* ---- NEUE REGELN FÜR DIE UNTERSEITEN ---- */
+
+/* Titel auf der Unterseite */
+.main-content h1 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-top: 0;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+/* Container für ein einzelnes Kunstwerk */
+.artwork-item {
+    margin-bottom: 60px; /* Abstand zwischen den Kunstwerken */
+}
+
+/* Infobereich unter dem Bild */
+.artwork-info {
+    margin-top: 15px;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* Metadaten (Material, Datum) */
+.meta {
+    margin-top: 15px;
+    color: #666;
+}
+
+.meta p {
+    margin: 5px 0;
+}
+
+/* Link auf den Namen, um zur Startseite zurückzukehren */
+.sidebar h1 a.home-link {
+    color: #333;
+    text-decoration: none;
+}
