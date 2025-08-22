@@ -17,7 +17,7 @@ body {
 
 /* Linke Spalte (Sidebar) */
 .sidebar {
-    width: 380px; /* --- GEÄNDERT: Sidebar verbreitert --- */
+    width: 380px;
     padding: 40px;
     background-color: white;
     display: flex;
@@ -61,7 +61,7 @@ body {
     font-size: 0.8em;
     line-height: 1.2;
     hyphens: auto; 
-	text-align: justify
+    text-align: justify;
 }
 
 /* Footer für Impressum */
@@ -78,30 +78,43 @@ footer a {
 .main-content {
     flex-grow: 1;
     padding: 40px;
-    max-width: 1100px; /* --- NEU: Maximale Breite für den Inhalt --- */
+    max-width: 1100px;
 }
 
+/* --- GEÄNDERT: Gilt jetzt NICHT mehr für alle Bilder, sondern wird unten genauer definiert --- */
 .main-content img {
-    max-width: 60%;
+    max-width: 100%;
     height: auto;
 }
-
-
 
 /* ---- REGELN FÜR DIE UNTERSEITEN ---- */
 
 /* Titel auf der Unterseite */
 .main-content h1 {
-    font-size: 1.2em; /* --- GEÄNDERT: Schriftgröße angepasst --- */
+    font-size: 1.2em;
     font-weight: normal;
     margin-top: 0;
-    margin-bottom: 40px; /* --- GEÄNDERT: Abstand angepasst für Bündigkeit --- */
-    padding-bottom: 0; /* --- GEÄNDERT: Abstand angepasst für Bündigkeit --- */
+    margin-bottom: 40px;
+    padding-bottom: 0;
 }
 
 /* Container für ein einzelnes Kunstwerk */
 .artwork-item {
     margin-bottom: 60px;
+}
+
+/* --- NEU: Regel nur für die kleineren Bilder auf den Unterseiten --- */
+.artwork-item img {
+    max-width: 60%;
+    height: auto;
+}
+
+/* --- NEU: Regel nur für das große Startseiten-Bild --- */
+#frontpage-image {
+    width: 100%;
+    height: calc(100vh - 80px); /* Höhe des Browserfensters minus Padding oben/unten */
+    object-fit: cover; /* Schneidet das Bild passend zu, ohne es zu verzerren */
+    object-position: center; /* Zentriert das Bild im Rahmen */
 }
 
 /* Infobereich unter dem Bild */
@@ -125,5 +138,5 @@ footer a {
 .sidebar h1 a.home-link {
     color: #333;
     text-decoration: none;
-    font-weight:600;
+    font-weight: 600;
 }
