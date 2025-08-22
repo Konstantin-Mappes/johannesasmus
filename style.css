@@ -28,7 +28,7 @@ body {
     height: 100vh; 
     overflow-y: auto; 
     
-    flex-shrink: 0; /* --- NEU: Verhindert, dass die Sidebar schmaler wird --- */
+    flex-shrink: 0;
 }
 
 .sidebar h1 {
@@ -81,7 +81,7 @@ footer a {
     flex-grow: 1;
     padding: 40px;
     max-width: 1100px;
-    min-width: 0; /* --- NEU: Verbessert das Layout-Verhalten bei großen Inhalten --- */
+    min-width: 0;
 }
 
 .main-content img {
@@ -100,18 +100,20 @@ footer a {
     padding-bottom: 0;
 }
 
+/* --- HIER IST DIE ÄNDERUNG --- */
 /* Container für ein einzelnes Kunstwerk */
 .artwork-item {
     margin-bottom: 60px;
+    max-width: 80%; /* Wir beschränken die Breite des gesamten Blocks */
+    /* Die Zentrierung haben wir von hier entfernt, damit der Block linksbündig bleibt */
 }
 
-/* --- HIER IST DIE ÄNDERUNG (DER KOMPROMISS) --- */
+/* Das Bild füllt jetzt wieder 100% seines (jetzt kleineren) Containers aus */
 .artwork-item img {
-    max-width: 80%; /* Ein guter Kompromiss, nicht zu groß, nicht zu klein */
+    max-width: 100%; /* Zurück auf 100% */
     height: auto;
-    display: block; /* Notwendig für die Zentrierung */
-    margin-left: auto; /* Zentriert das Bild horizontal */
-    margin-right: auto; /* Zentriert das Bild horizontal */
+    display: block;
+    /* margin-left und margin-right wurden entfernt */
 }
 
 /* Regel nur für das große Startseiten-Bild */
