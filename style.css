@@ -59,7 +59,9 @@ body {
 /* Künstler-Info Text */
 .artist-info {
     font-size: 0.8em;
-    line-height: 1;
+    line-height: 1.2;
+    hyphens: auto; 
+	text-align: justify
 }
 
 /* Footer für Impressum */
