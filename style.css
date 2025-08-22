@@ -17,7 +17,7 @@ body {
 
 /* Linke Spalte (Sidebar) */
 .sidebar {
-    width: 680px; /* --- GEÄNDERT: Sidebar verbreitert --- */
+    width: 380px; /* --- GEÄNDERT: Sidebar verbreitert --- */
     padding: 40px;
     background-color: white;
     display: flex;
@@ -80,7 +80,7 @@ footer a {
 }
 
 .main-content img {
-    max-width: 50%;
+    max-width: 60%;
     height: auto;
 }
 
