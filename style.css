@@ -1,97 +1,73 @@
 /* ---- GRUNDLAGEN ---- */
-
-/* Grundlegende Einstellungen und Schriftart */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     background-color: white;
     color: #333;
-    overflow-x: clip; 
+    overflow-x: clip;
 }
-
-/* Haupt-Container für das zweispaltige Layout */
 .page-wrapper {
     display: flex;
     min-height: 100vh;
 }
-
-/* Linke Spalte (Sidebar) */
+/* ---- DESKTOP-ANSICHT ---- */
 .sidebar {
     width: 380px;
     padding: 40px;
     background-color: white;
     display: flex;
     flex-direction: column;
-    
     position: sticky;
     top: 0;
-    height: 100vh; 
-    overflow-y: auto; 
-    
+    height: 100vh;
+    overflow-y: hidden; 
     flex-shrink: 0;
 }
-
-.sidebar h1 {
+.sidebar .desktop-header h1 {
     margin: 0 0 40px 0;
     font-size: 1.2em;
     font-weight: normal;
 }
-
-/* Navigation */
+.main-nav {
+    flex-grow: 1; 
+    overflow-y: auto; 
+}
 .main-nav ul {
     list-style: none;
     padding: 0;
     margin: 0 0 40px 0;
 }
-
-.main-nav li {
-    margin-bottom: 8px;
-}
-
+.main-nav li { margin-bottom: 8px; }
 .main-nav a {
     text-decoration: none;
     color: #333;
     font-size: 0.9em;
 }
-
-.main-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Künstler-Info Text */
+.main-nav a:hover { text-decoration: underline; }
+.main-nav a.active { font-weight: bold; }
 .artist-info {
     font-size: 0.8em;
     line-height: 1.2;
-    hyphens: auto; 
+    hyphens: auto;
     text-align: justify;
+    margin-top: 20px;
 }
-
-/* Footer für Impressum */
 footer {
-    margin-top: auto; 
+    margin-top: auto;
+    padding-top: 20px;
     font-size: 0.9em;
 }
-
-footer a {
-    color: #333;
-}
-
-/* Rechte Spalte (Hauptinhalt) */
+footer a { color: #333; }
 .main-content {
     flex-grow: 1;
     padding: 40px;
     max-width: 1100px;
     min-width: 0;
 }
-
 .main-content img {
     max-width: 100%;
     height: auto;
 }
-
-/* ---- REGELN FÜR DIE UNTERSEITEN ---- */
-
-/* Titel auf der Unterseite */
 .main-content h1 {
     font-size: 1.2em;
     font-weight: normal;
@@ -99,129 +75,102 @@ footer a {
     margin-bottom: 40px;
     padding-bottom: 0;
 }
-
-/* --- HIER IST DIE ÄNDERUNG --- */
-/* Container für ein einzelnes Kunstwerk */
 .artwork-item {
     margin-bottom: 60px;
-    max-width: 80%; /* Wir beschränken die Breite des gesamten Blocks */
-    /* Die Zentrierung haben wir von hier entfernt, damit der Block linksbündig bleibt */
+    max-width: 100%;
 }
-
-/* Das Bild füllt jetzt wieder 100% seines (jetzt kleineren) Containers aus */
 .artwork-item img {
-    max-width: 100%; /* Zurück auf 100% */
+    max-width: 100%;
     height: auto;
-    display: block;
-    /* margin-left und margin-right wurden entfernt */
 }
-
-/* Regel nur für das große Startseiten-Bild */
 #frontpage-image {
     width: 100%;
     height: calc(100vh - 80px);
     object-fit: contain;
     object-position: center;
 }
-
-/* Infobereich unter dem Bild */
 .artwork-info {
     margin-top: 15px;
     font-size: 0.9em;
     line-height: 1.5;
 }
-
-/* Metadaten (Material, Datum) */
 .meta {
     margin-top: 15px;
     color: #666;
 }
-
-.meta p {
-    margin: 5px 0;
-}
-
-/* Link auf den Namen, um zur Startseite zurückzukehren */
+.meta p { margin: 5px 0; }
 .sidebar h1 a.home-link {
     color: #333;
     text-decoration: none;
     font-weight: 600;
 }
-/* ---- NEUE REGEL FÜR AKTIVEN MENÜPUNKT ---- */
+.mobile-header { display: none; } 
 
-.main-nav a.active {
-    font-weight: bold; /* Macht den Text des aktiven Links fett */
-}
 /* ---- MOBILE ANPASSUNGEN & BURGER-MENÜ ---- */
-
-/* Media Query: Diese Regeln gelten nur auf Bildschirmen, die 900px breit oder schmaler sind */
 @media (max-width: 900px) {
-
-    /* --- Layout-Anpassungen --- */
-    .page-wrapper {
-        flex-direction: column; /* Spalten untereinander anordnen */
-    }
-
+    .page-wrapper { flex-direction: column; }
     .main-content {
         padding: 20px;
-        padding-top: 80px; /* Platz für den fixierten Burger schaffen */
+        padding-top: 80px;
     }
-
-    /* --- Burger-Menü-Button --- */
+    .sidebar .desktop-header { display: none; }
+    .mobile-header {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        z-index: 900;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .mobile-header h1 {
+        font-size: 1.2em;
+        font-weight: 600;
+        text-align: center;
+        margin: 0;
+    }
+    .mobile-header h1 a {
+        color: #333;
+        text-decoration: none;
+    }
     .burger-menu {
-        display: block; /* Nur auf Mobilgeräten anzeigen */
-        position: fixed; /* Bleibt beim Scrollen sichtbar */
+        display: block;
+        position: fixed;
         top: 20px;
         left: 20px;
-        z-index: 1000; /* Stellt sicher, dass es über allem liegt */
+        z-index: 1000;
         background: none;
         border: none;
         padding: 10px;
         cursor: pointer;
     }
-
     .burger-menu span {
         display: block;
         width: 25px;
         height: 3px;
         background-color: #333;
         margin: 5px 0;
-        transition: transform 0.3s ease;
+        transition: all 0.3s ease-in-out;
     }
-
-    /* --- Sidebar-Anpassungen --- */
+    .burger-menu.is-active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .burger-menu.is-active span:nth-child(2) { opacity: 0; }
+    .burger-menu.is-active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     .sidebar {
-        position: fixed; /* Fixiert für das Hineinschieben */
+        position: fixed;
         left: 0;
         top: 0;
-        width: 300px; /* Etwas schmaler auf dem Handy */
+        width: 300px;
         height: 100%;
-        transform: translateX(-100%); /* Standardmäßig außerhalb des Bildschirms */
-        transition: transform 0.3s ease; /* Animation für das Ein-/Ausschieben */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
         z-index: 999;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.1); /* Schöner Schatten */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
     }
-
-    /* --- Zustand, wenn das Menü offen ist --- */
-    .sidebar.is-open {
-        transform: translateX(0); /* Schiebt die Sidebar ins Bild */
-    }
-
-    /* --- Bilder auf Mobilgeräten --- */
-    .artwork-item, .artwork-item img, #frontpage-image {
-        max-width: 100%;
-        width: 100%;
-        height: auto;
-    }
-
-    #frontpage-image {
-        margin-top: -60px; /* Korrigiert den Abstand, der durch das Burger-Menü entsteht */
-    }
+    .sidebar.is-open { transform: translateX(0); }
+    #frontpage-image { margin-top: 0; }
 }
-
-/* Regeln für Bildschirme, die breiter als 900px sind (Desktop) */
 @media (min-width: 901px) {
-    .burger-menu {
-        display: none; /* Burger auf Desktop ausblenden */
-    }
+    .burger-menu { display: none; }
 }
