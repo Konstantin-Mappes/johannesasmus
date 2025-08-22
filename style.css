@@ -147,3 +147,8 @@ footer a {
     text-decoration: none;
     font-weight: 600;
 }
+/* ---- NEUE REGEL FÜR AKTIVEN MENÜPUNKT ---- */
+
+.main-nav a.active {
+    font-weight: bold; /* Macht den Text des aktiven Links fett */
+}
