@@ -17,7 +17,7 @@ body {
 
 /* Linke Spalte (Sidebar) */
 .sidebar {
-    width: 340px; /* --- GEÄNDERT: Sidebar verbreitert --- */
+    width: 680px; /* --- GEÄNDERT: Sidebar verbreitert --- */
     padding: 40px;
     background-color: white;
     display: flex;
