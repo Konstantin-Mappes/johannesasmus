@@ -1,10 +1,10 @@
-/* ---- GRUNDLAGEN (FEHLT BEI DIR) ---- */
+/* ---- GRUNDLAGEN ---- */
 
 /* Grundlegende Einstellungen und Schriftart */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    background-color: #f0f0f0; /* Leicht grauer Hintergrund wie im Beispiel */
+    background-color: white; /* Geändert */
     color: #333;
 }
 
@@ -18,7 +18,7 @@ body {
 .sidebar {
     width: 280px; /* Feste Breite für die linke Spalte */
     padding: 40px;
-    background-color: #f0f0f0;
+    background-color: white; /* Geändert */
     display: flex;
     flex-direction: column; /* Elemente untereinander anordnen */
 }
@@ -37,7 +37,7 @@ body {
 }
 
 .main-nav li {
-    margin-bottom: 10px;
+    margin-bottom: 8px; /* Geändert */
 }
 
 .main-nav a {
@@ -78,14 +78,14 @@ footer a {
 }
 
 
-/* ---- NEUE REGELN FÜR DIE UNTERSEITEN (DIESEN TEIL HATTEST DU SCHON) ---- */
+/* ---- REGELN FÜR DIE UNTERSEITEN ---- */
 
 /* Titel auf der Unterseite */
 .main-content h1 {
     font-size: 1.5em;
     font-weight: normal;
     margin-top: 0;
-    border-bottom: 1px solid #ccc;
+    /* Die Trennlinie wurde hier entfernt */
     padding-bottom: 15px;
     margin-bottom: 40px;
 }
