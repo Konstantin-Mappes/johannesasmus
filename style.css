@@ -16,11 +16,17 @@ body {
 
 /* Linke Spalte (Sidebar) */
 .sidebar {
-    width: 280px; /* Feste Breite für die linke Spalte */
+    width: 280px;
     padding: 40px;
-    background-color: white; /* Geändert */
+    background-color: white;
     display: flex;
-    flex-direction: column; /* Elemente untereinander anordnen */
+    flex-direction: column;
+    
+    /* NEUE REGELN FÜR DAS FIXIEREN */
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Sorgt dafür, dass die Spalte immer bildschirmhoch ist */
+    overflow-y: auto; /* Fügt eine Scrollbar hinzu, falls der Menütext mal zu lang wird */
 }
 
 .sidebar h1 {
