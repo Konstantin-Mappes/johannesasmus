@@ -75,9 +75,12 @@ footer a { color: #333; }
     margin-bottom: 40px;
     padding-bottom: 0;
 }
+/* --- HIER IST ÄNDERUNG 1: Bildgröße Desktop --- */
 .artwork-item {
     margin-bottom: 60px;
-    max-width: 100%;
+    max-width: 80%; /* Beschränkt die Breite des Blocks auf dem Desktop */
+    margin-left: auto; /* Zentriert den Block */
+    margin-right: auto; /* Zentriert den Block */
 }
 .artwork-item img {
     max-width: 100%;
@@ -167,8 +170,18 @@ footer a { color: #333; }
         transition: transform 0.3s ease;
         z-index: 999;
         box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        /* --- HIER IST ÄNDERUNG 2: Abstand für Burger-Menü --- */
+        padding: 80px 40px 40px; /* Oben mehr Abstand, damit nichts überlappt */
     }
     .sidebar.is-open { transform: translateX(0); }
+    
+    /* Hebt die Desktop-Beschränkung für die Bilder auf Mobilgeräten auf */
+    .artwork-item {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     #frontpage-image { margin-top: 0; }
 }
 @media (min-width: 901px) {
