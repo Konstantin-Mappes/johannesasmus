@@ -191,3 +191,20 @@ footer a { color: #333; }
 @media (min-width: 901px) {
     .burger-menu { display: none; }
 }
+.more-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    white-space: nowrap; /* Verhindert Zeilenumbruch vor dem Link */
+}
+
+/* Stil für den Haupttext in der Biografie-Seite */
+.bio-content {
+    max-width: 800px;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.bio-content p {
+    margin-bottom: 1em;
+}
