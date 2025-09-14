@@ -65,8 +65,8 @@ footer a { color: #333; }
     min-width: 0;
 }
 .main-content img {
-    max-width: 100%;
-    height: auto;
+    max-height: 90vh;
+    width: auto;
 }
 
 /* ---- REGELN FÜR DIE UNTERSEITEN ---- */
