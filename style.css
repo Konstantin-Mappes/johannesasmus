@@ -10,6 +10,7 @@ body {
     display: flex;
     min-height: 100vh;
 }
+
 /* ---- DESKTOP-ANSICHT ---- */
 .sidebar {
     width: 380px;
@@ -166,6 +167,7 @@ footer a { color: #333; }
     .burger-menu.is-active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .burger-menu.is-active span:nth-child(2) { opacity: 0; }
     .burger-menu.is-active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    
     .sidebar {
         position: fixed;
         left: 0;
@@ -176,9 +178,21 @@ footer a { color: #333; }
         transition: transform 0.3s ease;
         z-index: 999;
         box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-        padding: 80px 40px 40px; 
-        overflow-y: auto; 
+        
+        /* --- ÄNDERUNGEN FÜR SCROLLBARKEIT --- */
+        display: block; /* NEU: Verhindert Flexbox-Probleme, damit Inhalte untereinander stehen */
+        overflow-y: auto; /* NEU: Erlaubt Scrollen */
+        padding: 80px 40px 120px; /* NEU: Unten mehr Platz (120px), damit Impressum sichtbar wird */
+        -webkit-overflow-scrolling: touch; /* Für weiches Scrollen auf iPhones */
     }
+    
+    /* NEU: Damit die Navigation auf Mobilgeräten nicht versucht, den Platz zu begrenzen */
+    .main-nav {
+        overflow: visible;
+        flex-grow: 0;
+        margin-bottom: 30px;
+    }
+
     .sidebar.is-open { transform: translateX(0); }
     
     /* Hebt die Desktop-Beschränkung für die Blöcke auf Mobilgeräten auf */
