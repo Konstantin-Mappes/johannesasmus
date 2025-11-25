@@ -1,4 +1,9 @@
 /* ---- GRUNDLAGEN ---- */
+/* WICHTIG: Das hier sorgt dafür, dass Padding nicht zur Breite/Höhe addiert wird */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -71,8 +76,6 @@ footer a { color: #333; }
 }
 
 /* ---- REGELN FÜR DIE UNTERSEITEN ---- */
-
-/* Titel auf der Unterseite */
 .main-content h1 {
     font-size: 1.2em;
     font-weight: normal;
@@ -81,8 +84,6 @@ footer a { color: #333; }
     padding-bottom: 0;
     max-width: 80%;
 }
-
-/* Container für ein einzelnes Kunstwerk */
 .artwork-item {
     margin-bottom: 60px;
     max-width: 80%;
@@ -168,34 +169,41 @@ footer a { color: #333; }
     .burger-menu.is-active span:nth-child(2) { opacity: 0; }
     .burger-menu.is-active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     
+    /* WICHTIGSTE ÄNDERUNGEN HIER: */
     .sidebar {
         position: fixed;
         left: 0;
         top: 0;
         width: 300px;
-        height: 100vh; 
+        height: 100vh; /* Volle Höhe */
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 999;
         box-shadow: 2px 0 10px rgba(0,0,0,0.1);
         
-        /* --- ÄNDERUNGEN FÜR SCROLLBARKEIT --- */
-        display: block; /* NEU: Verhindert Flexbox-Probleme, damit Inhalte untereinander stehen */
-        overflow-y: auto; /* NEU: Erlaubt Scrollen */
-        padding: 80px 40px 120px; /* NEU: Unten mehr Platz (120px), damit Impressum sichtbar wird */
-        -webkit-overflow-scrolling: touch; /* Für weiches Scrollen auf iPhones */
+        /* Erzwinge Block-Display statt Flex, damit Scrollen klappt */
+        display: block !important;
+        
+        /* Erzwinge Scrollen */
+        overflow-y: scroll !important;
+        
+        /* Viel Platz unten, damit Impressum nicht verdeckt wird */
+        padding: 80px 40px 150px 40px; 
+        
+        /* Weiches Scrollen für iPhone */
+        -webkit-overflow-scrolling: touch;
     }
-    
-    /* NEU: Damit die Navigation auf Mobilgeräten nicht versucht, den Platz zu begrenzen */
+
+    /* Verhindere, dass die Navigationsleiste selbst scrollt (Konfliktvermeidung) */
     .main-nav {
-        overflow: visible;
+        overflow: visible !important;
+        height: auto !important;
         flex-grow: 0;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .sidebar.is-open { transform: translateX(0); }
     
-    /* Hebt die Desktop-Beschränkung für die Blöcke auf Mobilgeräten auf */
     .main-content h1, .artwork-item {
         max-width: 100%;
     }
@@ -213,7 +221,6 @@ footer a { color: #333; }
     white-space: nowrap; 
 }
 
-/* Stil für den Haupttext in der Biografie-Seite */
 .bio-content {
     max-width: 800px;
     font-size: 0.9em;
