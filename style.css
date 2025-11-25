@@ -1,223 +1,474 @@
 /* ---- GRUNDLAGEN ---- */
+
 body {
+
     font-family: Arial, Helvetica, sans-serif;
+
     margin: 0;
+
     background-color: white;
+
     color: #333;
+
     overflow-x: clip;
-}
-.page-wrapper {
-    display: flex;
-    min-height: 100vh;
+
 }
 
-/* ---- DESKTOP-ANSICHT (Original wiederhergestellt) ---- */
-.sidebar {
-    width: 380px;
-    padding: 40px;
-    background-color: white;
+.page-wrapper {
+
     display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: hidden; /* Desktop: Scrollen verhindert */
-    flex-shrink: 0;
+
+    min-height: 100vh;
+
 }
-.sidebar .desktop-header h1 {
-    margin: 0 0 40px 0;
-    font-size: 1.2em;
-    font-weight: normal;
-}
-.main-nav {
-    flex-grow: 1; 
-    overflow-y: auto; /* Internes Scrollen im Menü erlaubt, falls Bildschirm zu klein */
-}
-.main-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px 0;
-}
-.main-nav li { margin-bottom: 8px; }
-.main-nav a {
-    text-decoration: none;
-    color: #333;
-    font-size: 0.9em;
-}
-.main-nav a:hover { text-decoration: underline; }
-.main-nav a.active { font-weight: bold; }
-.artist-info {
-    font-size: 0.8em;
-    line-height: 1.2;
-    hyphens: auto;
-    text-align: justify;
-    margin-top: 20px;
-}
-footer {
-    margin-top: auto;
-    padding-top: 20px;
-    font-size: 0.9em;
-}
-footer a { color: #333; }
-.main-content {
-    flex-grow: 1;
+
+/* ---- DESKTOP-ANSICHT ---- */
+
+.sidebar {
+
+    width: 380px;
+
     padding: 40px;
+
+    background-color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: sticky;
+
+    top: 0;
+
+    height: 100vh;
+
+    overflow-y: hidden; 
+
+    flex-shrink: 0;
+
+}
+
+.sidebar .desktop-header h1 {
+
+    margin: 0 0 40px 0;
+
+    font-size: 1.2em;
+
+    font-weight: normal;
+
+}
+
+.main-nav {
+
+    flex-grow: 1; 
+
+    overflow-y: auto; 
+
+}
+
+.main-nav ul {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0 0 40px 0;
+
+}
+
+.main-nav li { margin-bottom: 8px; }
+
+.main-nav a {
+
+    text-decoration: none;
+
+    color: #333;
+
+    font-size: 0.9em;
+
+}
+
+.main-nav a:hover { text-decoration: underline; }
+
+.main-nav a.active { font-weight: bold; }
+
+.artist-info {
+
+    font-size: 0.8em;
+
+    line-height: 1.2;
+
+    hyphens: auto;
+
+    text-align: justify;
+
+    margin-top: 20px;
+
+}
+
+footer {
+
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    font-size: 0.9em;
+
+}
+
+footer a { color: #333; }
+
+.main-content {
+
+    flex-grow: 1;
+
+    padding: 40px;
+
     max-width: 1100px;
+
     min-width: 0;
+
 }
+
 .main-content img {
+
     max-height: 85vh;
+
     width: auto;
+
 }
+
+
 
 /* ---- REGELN FÜR DIE UNTERSEITEN ---- */
+
+
+
+/* Titel auf der Unterseite */
+
 .main-content h1 {
+
     font-size: 1.2em;
+
     font-weight: normal;
+
     margin-top: 0;
+
     margin-bottom: 40px;
+
     padding-bottom: 0;
+
     max-width: 80%;
+
 }
+
+
+
+/* Container für ein einzelnes Kunstwerk */
+
 .artwork-item {
+
     margin-bottom: 60px;
+
     max-width: 80%;
+
     margin-left: 0; 
+
     margin-right: 0;
+
 }
+
 .artwork-item img {
+
     max-width: 100%;
+
     height: auto;
+
 }
+
 #frontpage-image {
+
     width: 100%;
+
     height: calc(100vh - 80px);
+
     object-fit: contain;
+
     object-position: center;
+
 }
+
 .artwork-info {
+
     margin-top: 15px;
+
     font-size: 0.9em;
+
     line-height: 1.5;
+
 }
+
 .meta {
+
     margin-top: 15px;
+
     color: #666;
+
 }
+
 .meta p { margin: 5px 0; }
+
 .sidebar h1 a.home-link {
+
     color: #333;
+
     text-decoration: none;
+
     font-weight: 600;
+
 }
+
 .mobile-header { display: none; } 
 
+
+
 /* ---- MOBILE ANPASSUNGEN & BURGER-MENÜ ---- */
+
 @media (max-width: 900px) {
+
     .page-wrapper { flex-direction: column; }
+
     .main-content {
+
         padding: 20px;
+
         padding-top: 80px;
-    }
-    .sidebar .desktop-header { display: none; }
-    .mobile-header {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: white;
-        z-index: 900;
-        padding: 20px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .mobile-header h1 {
-        font-size: 1.2em;
-        font-weight: 600;
-        text-align: center;
-        margin: 0;
-    }
-    .mobile-header h1 a {
-        color: #333;
-        text-decoration: none;
-    }
-    .burger-menu {
-        display: block;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
-        background: none;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-    }
-    .burger-menu span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: #333;
-        margin: 5px 0;
-        transition: all 0.3s ease-in-out;
-    }
-    .burger-menu.is-active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .burger-menu.is-active span:nth-child(2) { opacity: 0; }
-    .burger-menu.is-active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-    
-    .sidebar {
-        /* Fix für Mobile Berechnung */
-        box-sizing: border-box; 
-        
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 300px;
-        height: 100vh;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        z-index: 999;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-        
-        /* Mobile: Scrollen aktivieren */
-        display: block !important;
-        overflow-y: scroll !important;
-        padding: 80px 40px 150px 40px; 
-        -webkit-overflow-scrolling: touch;
+
     }
 
-    .main-nav {
-        /* Konfliktvermeidung Mobil */
-        overflow: visible !important;
-        height: auto !important;
-        flex-grow: 0;
-        margin-bottom: 20px;
+    .sidebar .desktop-header { display: none; }
+
+    .mobile-header {
+
+        display: block;
+
+        position: fixed;
+
+        top: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        background: white;
+
+        z-index: 900;
+
+        padding: 20px;
+
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    }
+
+    .mobile-header h1 {
+
+        font-size: 1.2em;
+
+        font-weight: 600;
+
+        text-align: center;
+
+        margin: 0;
+
+    }
+
+    .mobile-header h1 a {
+
+        color: #333;
+
+        text-decoration: none;
+
+    }
+
+    .burger-menu {
+
+        display: block;
+
+        position: fixed;
+
+        top: 20px;
+
+        left: 20px;
+
+        z-index: 1000;
+
+        background: none;
+
+        border: none;
+
+        padding: 10px;
+
+        cursor: pointer;
+
+    }
+
+    .burger-menu span {
+
+        display: block;
+
+        width: 25px;
+
+        height: 3px;
+
+        background-color: #333;
+
+        margin: 5px 0;
+
+        transition: all 0.3s ease-in-out;
+
+    }
+
+    .burger-menu.is-active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+
+    .burger-menu.is-active span:nth-child(2) { opacity: 0; }
+
+    .burger-menu.is-active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .sidebar {
+
+        position: fixed;
+
+        left: 0;
+
+        top: 0;
+
+        width: 300px;
+
+        height: 100vh; 
+
+        transform: translateX(-100%);
+
+        transition: transform 0.3s ease;
+
+        z-index: 999;
+
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+
+        padding: 80px 40px 40px; 
+
+        overflow-y: auto; 
+
     }
 
     .sidebar.is-open { transform: translateX(0); }
+
     
+
+    /* Hebt die Desktop-Beschränkung für die Blöcke auf Mobilgeräten auf */
+
     .main-content h1, .artwork-item {
+
         max-width: 100%;
+
     }
 
+
+
     #frontpage-image { margin-top: 0; }
+
 }
+
 @media (min-width: 901px) {
+
     .burger-menu { display: none; }
+
 }
+
+
 
 .more-link {
+
     text-decoration: none;
+
     color: #333;
+
     font-weight: bold;
+
     white-space: nowrap; 
+
 }
+
+
+
+/* Stil für den Haupttext in der Biografie-Seite */
 
 .bio-content {
+
     max-width: 800px;
+
     font-size: 0.9em;
+
     line-height: 1.5;
+
 }
 
+
+
 .bio-content p {
+
     margin-bottom: 1em;
+
 }
+
+
+
+das das menu: <header class="desktop-header">
+
+    <h1><a href="index.html" class="home-link">Johannes Asmus</a></h1>
+
+</header>
+
+<nav class="main-nav">
+
+    <ul>
+
+        <li><a href="ausstellungsbesucher.html">Ausstellungsbesucher</a></li>
+
+        <li><a href="portraitzeichnungen.html">Portraitzeichungen</a></li>
+
+        <li><a href="filmbilder.html">Filmbilder</a></li>
+
+        <li><a href="plakatschwarten.html">Plakatschwarten</a></li>
+
+        <li><a href="shaped-canvases.html">Shaped Canvases</a></li>
+
+        <li><a href="grafik.html">Grafik</a></li>
+
+        <li><a href="masken.html">Masken</a></li>
+
+        <li><a href="griechenland.html">Griechenland</a></li>
+
+        <li><a href="atelier.html">Atelier in der Schanze</a></li>
+
+        <li><a href="usa.html">USA</a></li>
+
+        <li><a href="sonstiges.html">Schublade</a></li>
+
+        <li><a href="kurzbio.html">Kurzbiografie</a></li> <br>
+
+        <li><a href="kontakt.html">Kontakt</a></li> </ul>
+
+
+
+</nav>
+
+<div class="artist-info">
+
+    <p>Es begann damit, dass mir mein Vater von Geschäftsreisen nach London Kinderbücher mitbrachte, in welchen Teile des Gesichtes (Nasen, Augen, Münder) zwischen einem Dutzend oder mehr Gesichtern vertauscht werden konnten; oder ganze Gesichter und Hüte zwischen verschiedenen Typen von Menschen. Das bereitete mir ein unbeschreibliches Vergnügen am Verwandeln. Noch als Bub bestand ich darauf, mit dem Vater in Stuttgart eine Aufführung von Kleists "Der zerbrochne Krug" zu sehen. In den letzten Jahren der Schulzeit bewarb ich mich beim städtischen Theater darum, für die allmonatlich wechselnden Aufführungen Plakate zu entwerfen. Eine komplett neue Welt tat sich auf. Eine Leidenschaft für das Kino bahnte sich an, und ich begann schließlich ein Studium der Malerei an der Akademie Karlsruhe. <a href="kurzbio.html" class="more-link">mehr</a></p> </div>
+
+<footer>
+
+    <a href="impressum.html">Impressum</a>
+
+</footer>
+
