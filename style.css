@@ -1,5 +1,5 @@
 /* ---- GRUNDLAGEN ---- */
-/* WICHTIG: Das hier sorgt dafür, dass Padding nicht zur Breite/Höhe addiert wird */
+/* WICHTIG: Das hier sorgt für saubere Berechnung der Größen */
 * {
     box-sizing: border-box;
 }
@@ -34,10 +34,21 @@ body {
     font-size: 1.2em;
     font-weight: normal;
 }
+
+/* Hier wurde der Scrollbalken visuell entfernt */
 .main-nav {
     flex-grow: 1; 
     overflow-y: auto; 
+    /* Scrollbar für Firefox ausblenden */
+    scrollbar-width: none;
+    /* Scrollbar für IE/Edge ausblenden */
+    -ms-overflow-style: none;
 }
+/* Scrollbar für Chrome/Safari/Opera ausblenden */
+.main-nav::-webkit-scrollbar {
+    display: none;
+}
+
 .main-nav ul {
     list-style: none;
     padding: 0;
@@ -169,32 +180,23 @@ footer a { color: #333; }
     .burger-menu.is-active span:nth-child(2) { opacity: 0; }
     .burger-menu.is-active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     
-    /* WICHTIGSTE ÄNDERUNGEN HIER: */
     .sidebar {
         position: fixed;
         left: 0;
         top: 0;
         width: 300px;
-        height: 100vh; /* Volle Höhe */
+        height: 100vh;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         z-index: 999;
         box-shadow: 2px 0 10px rgba(0,0,0,0.1);
         
-        /* Erzwinge Block-Display statt Flex, damit Scrollen klappt */
         display: block !important;
-        
-        /* Erzwinge Scrollen */
         overflow-y: scroll !important;
-        
-        /* Viel Platz unten, damit Impressum nicht verdeckt wird */
         padding: 80px 40px 150px 40px; 
-        
-        /* Weiches Scrollen für iPhone */
         -webkit-overflow-scrolling: touch;
     }
 
-    /* Verhindere, dass die Navigationsleiste selbst scrollt (Konfliktvermeidung) */
     .main-nav {
         overflow: visible !important;
         height: auto !important;
